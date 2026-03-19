@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metros medidos con mis pies</title>
+  <link rel="icon" type="image/svg+xml" href="./health_app_icon.svg">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-main: #F2F2F7;
+      --card-bg: #FFFFFF;
+      --text-primary: #000000;
+      --text-secondary: #8E8E93;
+      --accent-pink: #FF2D55;
+      --accent-orange: #FF9500;
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-main);
+      color: var(--text-primary);
+    }
+
+    /* SLIDES */
+    .slide {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .slide-content {
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .title-slide {
+      text-align: center;
+      background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange));
+      color: white;
+      border-radius: 0 0 40px 40px;
+    }
+
+    .title-slide h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .title-slide p {
+      opacity: 0.9;
+      font-size: 1.2rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+
+    iframe, object {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .next {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      opacity: 0.7;
+    }
+
+    @media (max-width: 768px) {
+      .title-slide h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SLIDE 1 -->
+  <section class="slide title-slide">
+    <div class="slide-content">
+      <div style="display:flex; flex-direction:column; align-items:center; gap:15px;">
+        <div style="width:80px; height:80px; background:white; border-radius:22px; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 25px rgba(0,0,0,0.15); overflow:hidden;">
+          <img src="./health_app_icon.svg" alt="Health App Icon" style="width:60%; height:60%; object-fit:contain;">
+        </div>
+        <h1>Metros medidos con mis pies</h1>
+      </div>
+      <p>Explorando mis datos de Apple Health</p>
+    </div>
+  </section>
+
+  <!-- SLIDE 2 -->
+  <section class="slide">
+    <div class="slide-content">
+      <div class="card">
+        <div class='tableauPlaceholder' id='viz1773934230948'>
+          <object class='tableauViz'>
+            <param name='host_url' value='https://public.tableau.com/' />
+            <param name='embed_code_version' value='3' />
+            <param name='name' value='sb_infovis_tp_datos_personales/Dashboard1' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+          </object>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 3 -->
+  <section class="slide">
+    <div class="slide-content">
+      <div class="card">
+        <div class="flourish-embed flourish-chart" data-src="visualisation/28130515"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 4 -->
+  <section class="slide">
+    <div class="slide-content">
+      <div class="card">
+        <div style="background:#F2F2F7; padding:16px; border-radius:16px;">
+          <iframe
+            id="datawrapper-chart"
+            src="https://datawrapper.dwcdn.net/1TKi0/"
+            scrolling="no"
+            frameborder="0">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 5 -->
+  <section class="slide">
+    <div class="slide-content">
+      <div class="card">
+        <h2>¿En qué estación del año camino más? ¿cambió con el tiempo?</h2>
+        <div style="display:flex; justify-content:center;">
+          <img src="./km_season_ranking.svg" style="max-width:100%;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tableau Script -->
+  <script>
+    var divElement = document.getElementById('viz1773934230948');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+    vizElement.style.width = '100%';
+    vizElement.style.height = '800px';
+
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+  </script>
+
+  <!-- Flourish -->
+  <script src="https://public.flourish.studio/resources/embed.js"></script>
+
+  <!-- Datawrapper resize -->
+  <script>
+    window.addEventListener("message", function(event) {
+      if (event.data["datawrapper-height"]) {
+        const iframe = document.getElementById("datawrapper-chart");
+        for (const key in event.data["datawrapper-height"]) {
+          if (iframe.src.includes(key)) {
+            iframe.style.height = event.data["datawrapper-height"][key] + "px";
+          }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
